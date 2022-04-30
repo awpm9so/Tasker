@@ -1,8 +1,8 @@
 <template>
   <header>
     <div class="top-menu">
-      <router-link class="item-menu" to="/">Main</router-link>
-      <router-link class="item-menu" to="/project">Проекты</router-link>
+      <router-link class="item-menu" to="/">Главная</router-link>
+      <router-link class="item-menu" to="/projects">Проекты</router-link>
       <router-link class="item-menu" to="/other">Что-то еще</router-link>
     </div>
   </header>
