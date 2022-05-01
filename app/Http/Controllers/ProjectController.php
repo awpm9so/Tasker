@@ -29,8 +29,8 @@ class ProjectController extends Controller
         ]);
     }
 
-    public function getProjects()
+    public function get()
     {
-        return response(['projects' => Project::all()]);
+        return  Project::all();
     }
 }

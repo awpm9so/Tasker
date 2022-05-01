@@ -1,38 +1,40 @@
 <template>
-  <div>
-    <CardProject />
-    <button v-on:click="getProjects">Загрузить</button>
-    {{projects}}
+  <div class="list-project">
+    <CardProject
+      v-for="project in PROJECTS"
+      :key="project.id"
+      :project="project"
+    >
+    </CardProject>
   </div>
 </template>
 
 <script>
 import CardProject from "../components/project/CardProject.vue";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "ListProject",
-  data() {
-    return {
-      projects: [],
-    };
-  },
   components: {
     CardProject,
   },
+  data() {
+    return {};
+  },
+  mounted() {
+    this.getProjects();
+  },
+  computed: {
+    ...mapGetters(["PROJECTS"]),
+  },
   methods: {
-    getProjects: function () {
-      return fetch("http://localhost:8000/api/projects", {})
-        .then((response) => {  
-          return response.json();
-        })
-        .then((data) => {
-          this.projects = data;
-          console.log(data);
-        });
-    },
+    ...mapActions(["getProjects"]),
   },
 };
 </script>
 
-<style lang="scss">
+<style>
+.list-project{
+  display: flex;
+}
 </style>

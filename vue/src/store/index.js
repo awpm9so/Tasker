@@ -2,17 +2,16 @@ import { createStore } from "vuex"
 
 const store = createStore({
     state: {
-        user: {
-            data: {},
-            token: null
-        },
-        project: {
-            data: {}
+        user: [],
+        projects: []
+    },
+    getters: {
+        PROJECTS(state) {
+            return state.projects
         }
     },
-    getters: {},
     actions: {
-        create({ commit }, project) {
+        createProject({ commit }, project) {
             return fetch('http://localhost:8000/api/project/create', {
                 headers: {
                     'Content-Type': 'application/json',
@@ -23,8 +22,21 @@ const store = createStore({
             })
                 .then((res) => res.json())
         },
+        getProjects: function ({ commit }) {
+            return fetch("http://localhost:8000/api/projects")
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    commit('setProjects', data)
+                });
+        },
     },
-    mutations: {},
+    mutations: {
+        setProjects: (state, projects) => {
+            state.projects = projects
+        }
+    },
     modules: {}
 })
 
