@@ -21,3 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('project/create', [ProjectController::class, 'create']);
 Route::get('/projects', [ProjectController::class, 'get']);
+
+ Route::post('/progress', [ProjectController::class, 'getProgress']);
+ Route::post('/test', [ProjectController::class, 'test']);

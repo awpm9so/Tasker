@@ -8,6 +8,9 @@ use App\Models\Project;
 
 class ProjectController extends Controller
 {
+
+    private static $progress = 0;
+
     public function create(Request $request)
     {
         $data = $request->validate([
@@ -31,6 +34,23 @@ class ProjectController extends Controller
 
     public function get()
     {
-        return  Project::all();
+        return Project::all();
     }
+
+    public function test()
+    {
+        $max = 100;
+        while (ProjectController::$progress < $max)
+        {
+            ProjectController::$progress++;
+            sleep(1);
+        }
+        return ProjectController::$progress; 
+    }
+
+    public function getProgress()
+    {
+        return ProjectController::$progress; 
+    }
+
 }

@@ -26,9 +26,6 @@ export default{
 </script>
 
 <style>
-div{
-  padding: 20px;
-}
 label{
   padding: 10px;
 }
