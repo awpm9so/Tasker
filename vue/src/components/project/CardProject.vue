@@ -1,6 +1,6 @@
 <template>
     <div class="card-project">
-        <h3><a href="#">{{project.title}}</a></h3>
+        <h3><a :href="'projects/' + project.id">{{project.title}}</a></h3>
         <p>{{project.main_image}}</p>
         <p>{{project.description}}</p>
         <p>{{project.creator}}</p>
