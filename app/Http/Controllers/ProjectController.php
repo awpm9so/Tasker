@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
-
+use PhpParser\Node\Expr\FuncCall;
 
 class ProjectController extends Controller
 {
@@ -37,20 +37,10 @@ class ProjectController extends Controller
         return Project::all();
     }
 
-    public function test()
+    public function show(Project $project)
     {
-        $max = 100;
-        while (ProjectController::$progress < $max)
-        {
-            ProjectController::$progress++;
-            sleep(1);
-        }
-        return ProjectController::$progress; 
+        return $project;
     }
 
-    public function getProgress()
-    {
-        return ProjectController::$progress; 
-    }
 
 }

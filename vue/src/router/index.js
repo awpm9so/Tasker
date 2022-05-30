@@ -25,12 +25,17 @@ const routes = [
     },
     {
         path: '/projects',
-        name: 'ListProject',
+        name: 'projects',
         component: ListProject
     },
     {
         path: '/projects/:id',
         component: ProjectPage
+    },
+    {
+        path: '/projects/create',
+        name: 'project.create',
+        component: () => import('../components/project/CreateProject.vue')
     },
     {
         path: '/admin',

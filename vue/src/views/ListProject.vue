@@ -1,12 +1,15 @@
 <template>
-  <div class="list-project">
-    <CardProject
-      v-for="project in PROJECTS"
-      :key="project.id"
-      :project="project"
-    >
-    </CardProject>
-  </div>
+  <section> 
+    <button><router-link :to="{name: 'project.create'}">+ проект</router-link></button>
+    <div class="list-project">
+      <CardProject
+        v-for="project in PROJECTS"
+        :key="project.id"
+        :project="project"
+      >
+      </CardProject>
+    </div>
+  </section>
 </template>
 
 <script>
